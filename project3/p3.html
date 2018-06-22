@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<title>ESP8266 LED Control</title>
+	</head>
+	
+	<body>
+		<p style="text-align:center;">
+			<b>Project #4: Control Servo Motor</b><br>
+		Press any of the buttons below to perform a 45, 90, 135, or 180 degree sweep with the servo motor
+		</p>
+		
+	<!--buttons-->
+	
+		<button id="10" class="button">45 Degree Sweep</button>
+		<button id="11" class="button">90 Degree Sweep</button>
+		<button id="12" class="button">135 Degree Sweep</button>
+		<button id="13" class="button">180 Degree Sweep</button>
+	
+		<script src="jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".button").click(function(){
+					var p = $(this).attr('id');
+					//send HTTP GET 
+					$.get("http://192.168.4.1:80/",{pin:p});
+				});
+			});
+		</script>
+		
+	</body>
+</html>
